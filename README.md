@@ -60,15 +60,15 @@ Install Maven
 4. Add the copied file address and add it to your System PATH variable.
 ```
 
+## 🎈 Usage <a name="usage"></a>
+
+When you click it changes the color of the square. Use the number keys to change the color.
+
 Example
 <p align="left">
   <a href="" rel="noopener">
  <img width=400px height=400px src="https://i.imgur.com/IAFr58H.png" alt="Project Example"></a>
 </p>
-
-## 🎈 Usage <a name="usage"></a>
-
-When you click it changes the color of the square. Use the number keys to change the color.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
