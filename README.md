@@ -60,7 +60,11 @@ Install Maven
 4. Add the copied file address and add it to your System PATH variable.
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
+Example
+<p align="left">
+  <a href="" rel="noopener">
+ <img width=400px height=400px src="https://i.imgur.com/IAFr58H.png" alt="Project Example"></a>
+</p>
 
 ## 🎈 Usage <a name="usage"></a>
 
