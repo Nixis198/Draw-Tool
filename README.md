@@ -74,8 +74,6 @@ When you click it changes the color of the square. Use the number keys to change
 
 - [Nixis198](https://github.com/Nixis198) - Everything. I did it myself.
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
-
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
 - I guessed [MysteryDash](https://github.com/MysteryDash/) kinda helpped.
