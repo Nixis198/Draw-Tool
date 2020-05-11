@@ -14,7 +14,7 @@ import javax.swing.SwingUtilities;
 public class Canvas extends JPanel implements MouseInputListener, KeyListener {
     private static final long serialVersionUID = 1L;
 
-    private static final int WIDTH = 500, HEIGHT = 500, RES = 500;
+    private static final int WIDTH = 500, HEIGHT = 500, RES = 10;
 
     private ArrayPixel[][] gridArray;
 
