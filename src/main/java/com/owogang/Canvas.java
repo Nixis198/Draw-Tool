@@ -42,19 +42,15 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
 
     @Override
     public void paint(Graphics g) {
-        g.clearRect(0, 0, WIDTH, HEIGHT);
-        g.setColor(Color.white);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        for(int i = 0; i < grid.size(); i++) {
+            grid.get(i).draw(g);
+        }
         g.setColor(Color.black);
-
         for(int i = 0; i < WIDTH / 10; i++) {
             g.drawLine(i * 10, 0, i * 10, HEIGHT);
         }
         for(int i = 0; i < HEIGHT / 10; i++) {
             g.drawLine(0, i * 10, WIDTH, i * 10);
-        }
-        for(int i = 0; i < grid.size(); i++) {
-            grid.get(i).draw(g);
         }
     }
 
