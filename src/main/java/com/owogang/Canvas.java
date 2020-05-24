@@ -14,17 +14,21 @@ import javax.swing.SwingUtilities;
 public class Canvas extends JPanel implements MouseInputListener, KeyListener {
     private static final long serialVersionUID = 1L;
 
-    private static final int WIDTH = 500, HEIGHT = 500, RES = 10;
+    private static int m_WIDTH, m_HEIGHT, m_RES;
 
     private ArrayPixel[][] gridArray;
 
     private Color m_color = Color.BLACK;
 
-    public Canvas() {
+    public Canvas(int WIDTH, int HEIGHT, int RES) {
         setFocusable(true);
 
         addMouseListener(this);
         addKeyListener(this);
+
+        m_WIDTH = WIDTH;
+        m_HEIGHT = HEIGHT;
+        m_RES = RES;
 
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
 
@@ -34,9 +38,9 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
     }
 
     public void fillGrid(){
-        for(int i = 0; i < WIDTH / RES; i++) {
-            for(int j = 0; j < HEIGHT / RES; j++) {
-                gridArray[i][j] = new ArrayPixel(Color.WHITE, i, j, RES);
+        for(int i = 0; i < m_WIDTH / m_RES; i++) {
+            for(int j = 0; j < m_HEIGHT / m_RES; j++) {
+                gridArray[i][j] = new ArrayPixel(Color.WHITE, i, j, m_RES);
             }
         }
     }
@@ -58,26 +62,35 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
         }
 
         g.setColor(Color.black);
-        for(int i = 0; i < WIDTH / RES; i++) {
-            g.drawLine(i * RES, 0, i * RES, HEIGHT);
+        for(int i = 0; i < m_WIDTH / m_RES; i++) {
+            g.drawLine(i * m_RES, 0, i * m_RES, m_HEIGHT);
         }
-        for(int i = 0; i < HEIGHT / RES; i++) {
-            g.drawLine(0, i * RES, WIDTH, i * RES);
+        for(int i = 0; i < (m_HEIGHT / m_RES) + 0; i++) {
+            g.drawLine(0, i * m_RES, m_WIDTH, i * m_RES);
         }
     }
 
     public void paintSquare(int xCoor, int yCoor, boolean isRight) {
-        if(isRight) {
-            gridArray[xCoor][yCoor] = new ArrayPixel(Color.WHITE, xCoor, yCoor, RES);
-        }else {
-            gridArray[xCoor][yCoor] = new ArrayPixel(getColor(), xCoor, yCoor, RES);
+        try {
+            if(isRight) {
+                gridArray[xCoor][yCoor] = new ArrayPixel(Color.WHITE, xCoor, yCoor, m_RES);
+            }else {
+                gridArray[xCoor][yCoor] = new ArrayPixel(getColor(), xCoor, yCoor, m_RES);
+            }
+            repaint();
+        } catch (Exception e) {
+            
         }
-        repaint();
+        
+    }
+
+    public void openOptions(){
+        Main.optionsFrame.setVisible(true);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        paintSquare(e.getX() / RES, e.getY() / RES, SwingUtilities.isRightMouseButton(e));
+        paintSquare(e.getX() / m_RES, e.getY() / m_RES, SwingUtilities.isRightMouseButton(e));
     }
 
     @Override
@@ -94,6 +107,7 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
             case KeyEvent.VK_8: setColor(Color.YELLOW); break;
             case KeyEvent.VK_9: setColor(Color.CYAN); break;
             case KeyEvent.VK_0: setColor(Color.GRAY); break;
+            case KeyEvent.VK_ESCAPE: openOptions(); break;
         }
     }
 
