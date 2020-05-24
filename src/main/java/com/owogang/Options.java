@@ -1,13 +1,18 @@
 package com.owogang;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputListener;
 
 public class Options extends JPanel implements MouseInputListener {
     private static final long serialVersionUID = 1L;
+
+    public JButton save;
 
     public Options(int WIDTH, int HEIGHT) {
         setFocusable(true);
@@ -15,6 +20,26 @@ public class Options extends JPanel implements MouseInputListener {
         addMouseListener(this);
 
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
+
+        makeSaveButton();
+
+        save.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                saveButtonPressed();
+            }
+            
+        });
+    }
+
+    public void makeSaveButton() {
+        save = new JButton("Save");
+        this.add(save);
+        save.setVisible(true);
+    }
+
+    public void saveButtonPressed() {
     }
 
     @Override

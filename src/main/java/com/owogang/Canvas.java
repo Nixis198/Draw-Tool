@@ -16,7 +16,7 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
 
     private static int m_WIDTH, m_HEIGHT, m_RES;
 
-    private ArrayPixel[][] gridArray;
+    private static ArrayPixel[][] gridArray;
 
     private Color m_color = Color.BLACK;
 
@@ -35,6 +35,10 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
         gridArray = new ArrayPixel[WIDTH / RES][HEIGHT / RES];
 
         fillGrid();
+    }
+
+    public static ArrayPixel[][] getArray() {
+        return gridArray;
     }
 
     public void fillGrid(){

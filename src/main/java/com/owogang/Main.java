@@ -28,7 +28,7 @@ public class Main {
         Options options = new Options(300, 350);
 
         mainFrame.add(canvas);
-        mainFrame.setPreferredSize(new Dimension(500, 500));
+        mainFrame.setPreferredSize(new Dimension(506, 529));
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setTitle("Draw");
         mainFrame.setResizable(false);
