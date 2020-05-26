@@ -41,4 +41,12 @@ public class ArrayPixel {
         g.setColor(m_Color);
         g.fillRect(m_Xcor * m_size, m_Ycor * m_size, m_size, m_size);
     }
+
+    /**
+     * Method to get the color of a pixel.
+     * @return The color of the pixel.
+     */
+    public Color getColor() {
+        return m_Color;
+    }
 }

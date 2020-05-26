@@ -57,6 +57,18 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
         return m_color;
     }
 
+    public static int getArrayWidth() {
+        return m_WIDTH / m_RES;
+    }
+
+    public static int getArrayHeight() {
+        return m_HEIGHT / m_RES;
+    }
+
+    public static int getRes() {
+        return m_RES;
+    }
+
     @Override
     public void paint(Graphics g) {
         for(int i = 0; i < gridArray.length; i++) {

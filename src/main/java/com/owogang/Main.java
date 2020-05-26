@@ -24,7 +24,7 @@ public class Main {
     public Main() {
         JFrame mainFrame = new JFrame();
         optionsFrame = new JFrame();
-        Canvas canvas = new Canvas(500, 500, 10);
+        Canvas canvas = new Canvas(500, 500, 50);
         Options options = new Options(300, 350);
 
         mainFrame.add(canvas);
