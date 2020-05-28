@@ -16,7 +16,7 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
 
     private static int m_WIDTH, m_HEIGHT, m_RES;
 
-    private static ArrayPixel[][] gridArray;
+    public static ArrayPixel[][] gridArray;
 
     private Color m_color = Color.BLACK;
 
