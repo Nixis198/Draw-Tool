@@ -14,6 +14,8 @@ import javax.swing.SwingUtilities;
 public class Canvas extends JPanel implements MouseInputListener, KeyListener {
     private static final long serialVersionUID = 1L;
 
+    public static Canvas can;
+
     private static int m_WIDTH, m_HEIGHT, m_RES;
 
     public static ArrayPixel[][] gridArray;
@@ -25,6 +27,8 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
 
         addMouseListener(this);
         addKeyListener(this);
+
+        can = this;
 
         m_WIDTH = WIDTH;
         m_HEIGHT = HEIGHT;
@@ -47,6 +51,10 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
                 gridArray[i][j] = new ArrayPixel(Color.WHITE, i, j, m_RES);
             }
         }
+    }
+
+    public void runPaint() {
+        repaint();
     }
 
     public void setColor(Color color) {
@@ -81,7 +89,7 @@ public class Canvas extends JPanel implements MouseInputListener, KeyListener {
         for(int i = 0; i < m_WIDTH / m_RES; i++) {
             g.drawLine(i * m_RES, 0, i * m_RES, m_HEIGHT);
         }
-        for(int i = 0; i < (m_HEIGHT / m_RES) + 0; i++) {
+        for(int i = 0; i < (m_HEIGHT / m_RES); i++) {
             g.drawLine(0, i * m_RES, m_WIDTH, i * m_RES);
         }
     }

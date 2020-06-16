@@ -74,6 +74,7 @@ public class Options extends JPanel {
 
     public void loadButtonPressed() {
         Canvas.gridArray = readFromFile();
+        Canvas.can.repaint();
     }
 
     // this boi works
@@ -81,23 +82,23 @@ public class Options extends JPanel {
         int[][] array = new int[Canvas.getArrayWidth()][Canvas.getArrayHeight()];
         for (int i = 0; i < pixelarray.length; i++) {
             for (int j = 0; j < pixelarray[0].length; j++) {
-                if (pixelarray[i][j].getColor() == Color.WHITE) {array[j][i] = 0;}
-                if (pixelarray[i][j].getColor() == Color.BLACK) {array[j][i] = 1;}
-                if (pixelarray[i][j].getColor() == Color.BLUE) {array[j][i] = 2;}
-                if (pixelarray[i][j].getColor() == Color.GREEN) {array[j][i] = 3;}
-                if (pixelarray[i][j].getColor() == Color.MAGENTA) {array[j][i] = 4;}
-                if (pixelarray[i][j].getColor() == Color.ORANGE) {array[j][i] = 5;}
-                if (pixelarray[i][j].getColor() == Color.PINK) {array[j][i] = 6;}
-                if (pixelarray[i][j].getColor() == Color.RED) {array[j][i] = 7;}
-                if (pixelarray[i][j].getColor() == Color.YELLOW) {array[j][i] = 8;}
-                if (pixelarray[i][j].getColor() == Color.CYAN) {array[j][i] = 9;}
-                if (pixelarray[i][j].getColor() == Color.GRAY) {array[j][i] = 10;}
+                if (pixelarray[i][j].getColor() == Color.WHITE) {array[i][j] = 0;}
+                if (pixelarray[i][j].getColor() == Color.BLACK) {array[i][j] = 1;}
+                if (pixelarray[i][j].getColor() == Color.BLUE) {array[i][j] = 2;}
+                if (pixelarray[i][j].getColor() == Color.GREEN) {array[i][j] = 3;}
+                if (pixelarray[i][j].getColor() == Color.MAGENTA) {array[i][j] = 4;}
+                if (pixelarray[i][j].getColor() == Color.ORANGE) {array[i][j] = 5;}
+                if (pixelarray[i][j].getColor() == Color.PINK) {array[i][j] = 6;}
+                if (pixelarray[i][j].getColor() == Color.RED) {array[i][j] = 7;}
+                if (pixelarray[i][j].getColor() == Color.YELLOW) {array[i][j] = 8;}
+                if (pixelarray[i][j].getColor() == Color.CYAN) {array[i][j] = 9;}
+                if (pixelarray[i][j].getColor() == Color.GRAY) {array[i][j] = 10;}
             }
         }
         return array;
     }
 
-    // this boi idk if it works
+    // this boi seems to work
     public ArrayPixel[][] numbersToPixels(int[][] array) {
         ArrayPixel[][] pixelarray = new ArrayPixel[Canvas.getArrayWidth()][Canvas.getArrayHeight()];
         for (int i = 0; i < array.length; i++) {
