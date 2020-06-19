@@ -65,10 +65,6 @@ public class Options extends JPanel {
     }
 
     public void saveButtonPressed() {
-        /*
-         * for(int[] row : pixelsToNumbers(Canvas.getArray())) {
-         * System.out.println(Arrays.toString(row)); }
-         */
         saveToFile(Canvas.getArray());
     }
 
@@ -103,17 +99,17 @@ public class Options extends JPanel {
         ArrayPixel[][] pixelarray = new ArrayPixel[Canvas.getArrayWidth()][Canvas.getArrayHeight()];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
-                if (array[i][j] == 0) {pixelarray[i][j] = new ArrayPixel(Color.WHITE, j, i, Canvas.getRes());}
-                if (array[i][j] == 1) {pixelarray[i][j] = new ArrayPixel(Color.BLACK, j, i, Canvas.getRes());}
-                if (array[i][j] == 2) {pixelarray[i][j] = new ArrayPixel(Color.BLUE, j, i, Canvas.getRes());}
-                if (array[i][j] == 3) {pixelarray[i][j] = new ArrayPixel(Color.GREEN, j, i, Canvas.getRes());}
-                if (array[i][j] == 4) {pixelarray[i][j] = new ArrayPixel(Color.MAGENTA, j, i, Canvas.getRes());}
-                if (array[i][j] == 5) {pixelarray[i][j] = new ArrayPixel(Color.ORANGE, j, i, Canvas.getRes());}
-                if (array[i][j] == 6) {pixelarray[i][j] = new ArrayPixel(Color.PINK, j, i, Canvas.getRes());}
-                if (array[i][j] == 7) {pixelarray[i][j] = new ArrayPixel(Color.RED, j, i, Canvas.getRes());}
-                if (array[i][j] == 8) {pixelarray[i][j] = new ArrayPixel(Color.YELLOW, j, i, Canvas.getRes());}
-                if (array[i][j] == 9) {pixelarray[i][j] = new ArrayPixel(Color.CYAN, j, i, Canvas.getRes());}
-                if (array[i][j] == 10) {pixelarray[i][j] = new ArrayPixel(Color.GRAY, j, i, Canvas.getRes());
+                if (array[i][j] == 0) {pixelarray[i][j] = new ArrayPixel(Color.WHITE, i, j, Canvas.getRes());}
+                if (array[i][j] == 1) {pixelarray[i][j] = new ArrayPixel(Color.BLACK, i, j, Canvas.getRes());}
+                if (array[i][j] == 2) {pixelarray[i][j] = new ArrayPixel(Color.BLUE, i, j, Canvas.getRes());}
+                if (array[i][j] == 3) {pixelarray[i][j] = new ArrayPixel(Color.GREEN, i, j, Canvas.getRes());}
+                if (array[i][j] == 4) {pixelarray[i][j] = new ArrayPixel(Color.MAGENTA, i, j, Canvas.getRes());}
+                if (array[i][j] == 5) {pixelarray[i][j] = new ArrayPixel(Color.ORANGE, i, j, Canvas.getRes());}
+                if (array[i][j] == 6) {pixelarray[i][j] = new ArrayPixel(Color.PINK, i, j, Canvas.getRes());}
+                if (array[i][j] == 7) {pixelarray[i][j] = new ArrayPixel(Color.RED, i, j, Canvas.getRes());}
+                if (array[i][j] == 8) {pixelarray[i][j] = new ArrayPixel(Color.YELLOW, i, j, Canvas.getRes());}
+                if (array[i][j] == 9) {pixelarray[i][j] = new ArrayPixel(Color.CYAN, i, j, Canvas.getRes());}
+                if (array[i][j] == 10) {pixelarray[i][j] = new ArrayPixel(Color.GRAY, i, j, Canvas.getRes());
                 }
             }
         }
@@ -154,7 +150,7 @@ public class Options extends JPanel {
                     String[] cols = line.split(",");
                     int col = 0;
                     for(String c: cols) {
-                        array[row][col] = Integer.parseInt(c);
+                        array[col][row] = Integer.parseInt(c);
                         col++;
                     }
                     row++;
