@@ -13,12 +13,14 @@ import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Options extends JPanel {
     private static final long serialVersionUID = 1L;
 
     public JButton save;
     public JButton load;
+    public JTextField fileName;
 
     public int m_WIDTH, m_HEIGHT;
 
@@ -32,6 +34,7 @@ public class Options extends JPanel {
 
         makeSaveButton();
         makeLoadButton();
+        makeTextNeme();
 
         save.addActionListener(new ActionListener() {
 
@@ -50,6 +53,12 @@ public class Options extends JPanel {
             }
 
         });
+    }
+
+    public void makeTextNeme() {
+        fileName = new JTextField("Draw");
+        this.add(fileName);
+        fileName.setVisible(true);
     }
 
     public void makeSaveButton() {
@@ -71,6 +80,10 @@ public class Options extends JPanel {
     public void loadButtonPressed() {
         Canvas.gridArray = readFromFile();
         Canvas.can.repaint();
+    }
+
+    public String getFileName() {
+        return fileName.getText();
     }
 
     // this boi works
@@ -129,7 +142,7 @@ public class Options extends JPanel {
             builder.append("\n");
         }
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("draw.owo"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(getFileName() + ".owo"));
             writer.write(builder.toString());
             writer.close();
             //System.out.println("Saved");
@@ -139,7 +152,7 @@ public class Options extends JPanel {
     }
 
     public ArrayPixel[][] readFromFile() {
-        String saveFile = "draw.owo";
+        String saveFile = getFileName() + ".owo";
         int[][] array = new int[Canvas.getArrayWidth()][Canvas.getArrayHeight()];
         try {
             BufferedReader reader = new BufferedReader(new FileReader(saveFile));
